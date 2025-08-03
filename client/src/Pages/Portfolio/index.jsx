@@ -1,15 +1,10 @@
-import { useContext, useState, useEffect, useRef } from 'react';
+import { useContext, useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { ColorSchemeContext } from '../../Context/ColorSchemeProvider';
-import maldives from '../../assets/maldives.mp4'
 import swiss from '../../assets/nature.jpg'
 import zermatt from '../../assets/zermatt.jpg'
 import forest from '../../assets/forest.jpg'
-import italy from '../../assets/amalfi.mov'
-import rome from '../../assets/Colosseo.mov'
-import amalfi from '../../assets/amalfi.mov'
 import dubai1 from '../../assets/dubai1.jpg'
-import dubai2 from '../../assets/dubai2.jpg'
 import dubai22 from '../../assets/ema.jpg'
 import egyptGirl from '../../assets/egypt-girl.jpg'
 import egypt1 from '../../assets/egypt1.jpg'

@@ -1,6 +1,6 @@
 // import lightLogo from "../../assets/logo-light-new.png"
 // import darkLogo from "../../assets/logo-dark-new.png"
-import logo from "../../assets/logo.png"
+// import logo from "../../assets/logo.png"
 import { useContext, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { ColorSchemeContext } from '../../Context/ColorSchemeProvider';
