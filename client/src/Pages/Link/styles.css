@@ -1,0 +1,34 @@
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+.page-button {
+    background-color: rgb(15, 92, 147);
+    color: #fff;
+    margin-top: 20px;
+    width: 200px;
+    height: 40px;
+}
+.text-data {
+    margin: 10px;
+    
+    
+}
+.text-data h1 {
+    font-size: 1.5rem;
+}
+.text-data h2 {
+    font-weight: 800;
+    padding: 10px;
+}
+.firm {
+    width: 300px;
+    margin-left: 15px;
+}
+.final-data {
+    margin: 10px;
+}
+.form-link {
+    margin-top: 20px;
+}
