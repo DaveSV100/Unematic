@@ -15,7 +15,7 @@ import france1 from '../../assets/france1.jpg'
 import london2 from '../../assets/london2.jpg'
 import './styles.css'
 
-// TikTok embed helper
+// TikTok embed help
 
 
 const Portfolio = () => {
