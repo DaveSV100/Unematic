@@ -4,7 +4,7 @@ import { ColorSchemeContext } from '../../Context/ColorSchemeProvider';
 import swiss from '../../assets/nature.jpg'
 import zermatt from '../../assets/zermatt.jpg'
 import forest from '../../assets/forest.jpg'
-import dubai1 from '../../assets/dubai1.jpg'
+import dubai1 from '../../assets/0dubai1.jpg'
 import dubai22 from '../../assets/ema.jpg'
 import egyptGirl from '../../assets/egypt-girl.jpg'
 import egypt1 from '../../assets/egypt1.jpg'
