@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect, useRef } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ColorSchemeContext } from '../../Context/ColorSchemeProvider';
 import swiss from '../../assets/nature.jpg'
 import zermatt from '../../assets/zermatt.jpg'
@@ -21,6 +21,7 @@ import './styles.css'
 const Portfolio = () => {
     const colorScheme = useContext(ColorSchemeContext);
     const navigate = useNavigate();
+    const location = useLocation();
     const [selectedMedia, setSelectedMedia] = useState(null);
     const [showModal, setShowModal] = useState(false);
     // const [displayedItems, setDisplayedItems] = useState([]);
@@ -89,7 +90,20 @@ const Portfolio = () => {
     //     window.addEventListener('scroll', handleScroll);
     //     return () => window.removeEventListener('scroll', handleScroll);
     // }, [displayedItems]);
+ // Force scroll to top whenever this route is (re)entered
+  useEffect(() => {
+    // optional: prevent browser auto-restoration interfering
+    if ('scrollRestoration' in window.history) {
+      try { window.history.scrollRestoration = 'manual'; } catch (e) {}
+    }
 
+    // give React a tick to render then jump to top
+    const t = setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }, 0);
+
+    return () => clearTimeout(t);
+  }, [location.key]); // runs on initial mount and on each navigation to this route
 
     
 

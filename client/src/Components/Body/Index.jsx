@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ColorSchemeContext } from '../../Context/ColorSchemeProvider';
 import tec from '../../assets/wedding.jpg'
 import ai from '../../assets/nature.jpg'
@@ -34,6 +34,7 @@ import './App.css'
 const Body = () => {
 
     const colorScheme = useContext(ColorSchemeContext);
+    const location = useLocation();
     const navigate = useNavigate();
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [selectedMedia, setSelectedMedia] = useState(null);
@@ -108,7 +109,31 @@ const Body = () => {
         return colorScheme === 'dark' ? iconDark : iconLight;
     };
     
-  
+   useEffect(() => {
+    // support both state-based nav and URL hash
+    const targetFromState = location.state && location.state.scrollTo;
+    const targetFromHash = location.hash ? location.hash.replace('#', '') : null;
+    const targetId = targetFromState || targetFromHash;
+
+    if (targetId) {
+      // small delay to ensure DOM nodes are rendered (0ms works well)
+      setTimeout(() => {
+        const el = document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+        // Clear state so refresh/back doesn't re-scroll unexpectedly
+        if (targetFromState) {
+          // replace current entry with empty state
+          navigate(location.pathname, { replace: true, state: {} });
+        }
+        // remove hash from URL if used
+        if (targetFromHash) {
+          window.history.replaceState(null, '', window.location.pathname);
+        }
+      }, 0);
+    }
+  }, [location, navigate]);
 
     return (
         <div className={`body ${colorScheme}`}>
@@ -141,7 +166,7 @@ const Body = () => {
                     <h1>Unematic Visuals</h1>
                     <h2 className='title-h2'>Videography & Photography</h2>
                     <p>
-                    Unematic Visuals es una empresa de videografía y fotografía que se dedica a crear contenido para empresas, negocios, instituciones, organizaciones y para todo el que quiera innovar su proyecto
+                    Unematic Visuals es una empresa de videografía y fotografía para negocios, instituciones, sesiones, bodas, todo tipo de eventos y más.
                     </p>
                 </div>
             </div>
@@ -160,13 +185,13 @@ const Body = () => {
                         <img src={getIcon(whatsapp, whatsappWhite)} alt="whatsapp" className='us-container_icon'></img>
                         7851070156
                     </a>
-                    <a href="https://www.tiktok.com/@david.jaub?_t=ZS-8yWguoo3NWk&_r=1">
+                    <a href="https://www.tiktok.com/@david.unematic?_t=ZS-8yiILdcDzmc&_r=1">
                         <img src={getIcon(tiktok, tiktokWhite)} alt="tiktok" className='us-container_icon'></img>
                         @david.unematic
                     </a>
-                    <a href="https://www.tiktok.com/@david.jaub?_t=ZS-8yWguoo3NWk&_r=1">
+                    <a href="https://www.instagram.com/davidunematic?igsh=MW9wNDhsdmc0OGV6dA%3D%3D&utm_source=qr">
                         <img src={getIcon(instagram, instagramWhite)} alt="instagram" className='us-container_icon'></img>
-                        @david.unematic
+                        @davidunematic
                     </a>
                 </div>
             </div>
@@ -194,7 +219,7 @@ const Body = () => {
                             className="load-more-btn"
                             onClick={goToPortfolio}
                         >
-                            Ver más trabajos<br />↓
+                            Ver más trabajos<br />
                         </button>
                     </div>
                 </div>
@@ -232,7 +257,7 @@ const Body = () => {
             <div id='whyUs' className='subtitle why-us'>
                 <div className="last-title">
                     <h2>Por qué elegirnos</h2>
-                    <p>La creatividad y la calidad es la prioridad de Lightframe Films. Contamos con equipo de videocámara  cinematográfica con estabilización, cámara profesional, cámara para debajo de agua y drone para capturar desde todos los ángulos. Editamos para todas las redes sociales.</p>
+                    <p>La creatividad y la calidad es la prioridad de Unematic visuals. Contamos con equipo de videocámara  cinematográfica con estabilización, cámara profesional, cámara para debajo de agua y drone para capturar desde todos los ángulos. Editamos para todas las redes sociales.</p>
                 </div>
                 <div className="why-us_icons">
                     <img src={getIcon(icon1, icon1White)} className="last-img" alt="servicio 1" />

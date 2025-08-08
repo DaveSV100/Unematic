@@ -209,13 +209,14 @@
     }
     
     .back-home-btn {
-        top: 15px;
-        left: 15px;
+        top: 30px;
+        left: 25px;
         padding: 8px 16px;
         font-size: 0.9rem;
     }
     
     .portfolio-header h1 {
+        padding-top: 30px;
         font-size: 2rem;
     }
     

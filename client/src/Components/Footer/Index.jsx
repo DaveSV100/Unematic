@@ -18,12 +18,8 @@ const Footer = () => {
                     <img src={whatsapp} alt="whatsapp" className='us-container_icon'></img>
                     7851070156
                 </a>
-                <a href="mailto:info@huastex.com?subject=Información%20&body=Deseo%20saber%20más%20información">
-                    <img src={mail} alt="correo" className='us-container_icon'></img>
-                    info@huastex.com
-                </a>
             </div>
-            <p>© Uframer. Creatividad sin límites</p>
+            <p>© Unematic. Hazlo cinematic</p>
         </div>
     )
 }
